@@ -42,7 +42,6 @@ export default function(db: Database) {
     const { product, quantity = '1' } = req.body;
 
     if (!product) {
-      console.log(product, quantity);
       res.status(400);
       res.response.success = false;
       res.response.errors.push('Parameter \`product\` is required.');

@@ -45,8 +45,8 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   }
 
   jwt.verify(token, jwt_secret, (err, user) => {
-    // If error, do as if there was no token
     if (err) {
+      res.response.warnings.push('Invalid token.');
       next();
       return;
     }
